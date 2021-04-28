@@ -1,0 +1,16 @@
+query computeLoanAmountOutput(
+  $tuitionFee: Int
+  $outOfPocket: [Int]
+  $numYears: Int
+  $independent: Boolean
+) {
+  computeLoanAmountOutput(
+    tuitionFee: $tuitionFee
+    outOfPocket: $outOfPocket
+    numYears: $numYears
+    independent: $independent
+  ) {
+    federalLoan
+    privateLoan
+  }
+}

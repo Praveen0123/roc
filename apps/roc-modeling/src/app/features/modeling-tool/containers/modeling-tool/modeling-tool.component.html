@@ -1,0 +1,27 @@
+<ng-container *ngIf="{
+    userProfileModel: userProfileModel$ | async
+  } as inputOwner">
+
+
+  <section class="flex h-full">
+
+
+    <aside class="flex-auto shadow-md">
+
+      <roc-tool-controls [userProfileModel]="inputOwner.userProfileModel"
+                         (onCurrentInformationSubmitted)="onCurrentInformationSubmitted($event)"
+                         (markCurrentInformationAsInitialized)="markCurrentInformationAsInitialized()"
+                         (onCareerGoalSubmitted)="onCareerGoalSubmitted($event)"
+                         (onEducationCostSubmitted)="onEducationCostSubmitted($event)"></roc-tool-controls>
+
+    </aside>
+
+    <section class="flex-auto ml-4">
+      <div class="px-5 py-4 mt-4 mr-4 bg-white shadow-md place-items-center">
+        <roc-lifetime-earnings></roc-lifetime-earnings>
+      </div>
+    </section>
+
+  </section>
+
+</ng-container>

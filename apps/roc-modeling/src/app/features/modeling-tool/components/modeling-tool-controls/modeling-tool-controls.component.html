@@ -1,0 +1,102 @@
+<mat-accordion class="example-headers-align"
+               multi="false"
+               displayMode="flat">
+
+
+  <!-- CURRENT INFORMATION -->
+  <mat-expansion-panel [expanded]="true"
+                       (afterCollapse)="currentInformationCollapsed()">
+
+    <!-- TITLE -->
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+
+        <roc-tool-title [ordinalPosition]="1"
+                        [title]="'Current Information'"></roc-tool-title>
+
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <!-- FORM -->
+    <ng-template matExpansionPanelContent>
+
+      <roc-current-information [userProfileModel]="userProfileModel"
+                               (onCurrentInformationSubmitted)="onCurrentInformationSubmitted($event)"></roc-current-information>
+
+    </ng-template>
+
+  </mat-expansion-panel>
+
+
+
+  <!-- CAREER GOAL -->
+  <mat-expansion-panel [disabled]="!isCurrentInformationValid">
+
+    <!-- TITLE -->
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+
+        <roc-tool-title [ordinalPosition]="2"
+                        [title]="'Goal'"></roc-tool-title>
+
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+
+    <!-- FORM -->
+    <ng-template matExpansionPanelContent>
+
+      <roc-career-goals [userProfileModel]="userProfileModel"
+                        (onCareerGoalSubmitted)="onCareerGoalSubmitted($event)"></roc-career-goals>
+
+    </ng-template>
+
+  </mat-expansion-panel>
+
+
+
+  <!-- EDUCATION COST -->
+  <mat-expansion-panel [disabled]="!isCareerGoalValid">
+
+    <!-- TITLE -->
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+
+        <roc-tool-title [ordinalPosition]="3"
+                        [title]="'Education Cost'"></roc-tool-title>
+
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <!-- FORM -->
+    <ng-template matExpansionPanelContent>
+      <roc-education-costs [userProfileModel]="userProfileModel"
+                           (onEducationCostSubmitted)="onEducationCostSubmitted($event)"></roc-education-costs>
+    </ng-template>
+
+  </mat-expansion-panel>
+
+
+
+  <!-- EDUCATION FINANCING -->
+  <mat-expansion-panel [disabled]="!isEducationCostValid">
+
+    <!-- TITLE -->
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+
+        <roc-tool-title [ordinalPosition]="4"
+                        [title]="'Education Financing'"></roc-tool-title>
+
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <!-- FORM -->
+    <ng-template matExpansionPanelContent>
+      <roc-education-financing></roc-education-financing>
+    </ng-template>
+
+  </mat-expansion-panel>
+
+
+</mat-accordion>

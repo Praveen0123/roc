@@ -1,0 +1,75 @@
+query roiCalculatorOutput(
+  $currentZipCode: String
+  $goalZipCode: String
+  $distance: Int
+  $currentStateOnetCode: [String]!
+  $goalStateOnetCode: [String]!
+  $startDegreeLevel: Int
+  $endDegreeLevel: Int
+  $yearsToRetirement: Int
+  $avgNetPrice: Float
+  $monthsToPayoffFederalLoan: Int
+  $monthsToPayoffPrivateLoan: Int
+  $annualExpenseFromSavings: [Int]
+) {
+  goalState: roiCalculatorOutput(
+    currentZipCode: $currentZipCode
+    goalZipCode: $goalZipCode
+    distance: $distance
+    currentStateOnetCode: $currentStateOnetCode
+    goalStateOnetCode: $goalStateOnetCode
+    startDegreeLevel: $startDegreeLevel
+    endDegreeLevel: $endDegreeLevel
+    yearsToRetirement: $yearsToRetirement
+    avgNetPrice: $avgNetPrice
+    monthsToPayoffFederalLoan: $monthsToPayoffFederalLoan
+    monthsToPayoffPrivateLoan: $monthsToPayoffPrivateLoan
+    annualExpenseFromSavings: $annualExpenseFromSavings
+  ) {
+    yearsInCollege
+    yearsToRoiBreakEven25
+    yearsToRoiBreakEven50
+    yearsToRoiBreakEven75
+    earningCumulativeProb25
+    earningCumulativeProb50
+    earningCumulativeProb75
+    monthlySalary25
+    monthlySalary50
+    monthlySalary75
+    monthlyLoanPayment25
+    monthlyLoanPayment50
+    monthlyLoanPayment75
+    roi25
+    roi50
+    roi75
+    outOfPocket25
+    outOfPocket50
+    outOfPocket75
+    federalLoanAveraged
+    privateLoanAveraged
+    time
+  }
+
+  currentState: roiCalculatorOutput(
+    currentZipCode: $currentZipCode
+    goalZipCode: $currentZipCode
+    distance: $distance
+    currentStateOnetCode: $currentStateOnetCode
+    goalStateOnetCode: $currentStateOnetCode
+    startDegreeLevel: $startDegreeLevel
+    endDegreeLevel: $startDegreeLevel
+    yearsToRetirement: $yearsToRetirement
+    avgNetPrice: 0
+    monthsToPayoffFederalLoan: 0
+    monthsToPayoffPrivateLoan: 0
+    annualExpenseFromSavings: [0]
+  ) {
+    earningCumulativeProb25
+    earningCumulativeProb50
+    earningCumulativeProb75
+    monthlySalary25
+    monthlySalary50
+    monthlySalary75
+    time
+  }
+}

@@ -1,0 +1,4 @@
+@import '../vendors/material/palettes.scss';
+@import '~@angular/material/theming';
+
+$primary: mat-palette($mat-primary-palette);

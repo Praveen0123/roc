@@ -1,0 +1,48 @@
+<form [formGroup]="formGroup"
+      (ngSubmit)="onFormSubmit()">
+
+  <section class="flex flex-col w-full">
+
+    <!-- DEPENDENCY STATUS  -->
+    <!-- <div class="mt-6 mb-1">
+
+      <mat-label>
+        <div>Are you planning to attend school part-time or full-time?</div>
+      </mat-label>
+
+      <mat-radio-group formControlName="isFulltime"
+                       aria-label="part or full time student">
+        <mat-radio-button [value]="false">Part-Time</mat-radio-button>
+        <mat-radio-button [value]="true">Full-Time</mat-radio-button>
+      </mat-radio-group>
+
+
+    </div> -->
+
+
+    <!-- YEARS TO PAYOFF FEDERAL LOAN  -->
+    <!-- <div class="mt-6 mb-1">
+
+      <roc-slider label="Est. years to complete degree - {{defaultYearsToCompleteMinimum}} - {{defaultYearsToCompleteMaximum}}"
+                  formControlName="yearsToCompleteDegree"
+                  [min]="defaultYearsToCompleteMinimum"
+                  [max]="defaultYearsToCompleteMaximum"
+                  class="w-full"></roc-slider>
+
+    </div> -->
+
+
+    <!-- YEARS TO PAYOFF PRIVATE LOAN  -->
+    <!-- <div class="mt-6 mb-1">
+
+      <roc-slider label="Est. years to complete degree - {{defaultYearsToCompleteMinimum}} - {{defaultYearsToCompleteMaximum}}"
+                  formControlName="yearsToCompleteDegree"
+                  [min]="defaultYearsToCompleteMinimum"
+                  [max]="defaultYearsToCompleteMaximum"
+                  class="w-full"></roc-slider>
+
+    </div> -->
+
+  </section>
+
+</form>

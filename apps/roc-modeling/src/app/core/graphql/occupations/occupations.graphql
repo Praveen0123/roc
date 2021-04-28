@@ -1,0 +1,34 @@
+query occupationByOnetCode($onetCode: ID!, $occupationTitleOverride: String)
+{
+  occupationByOnetCode(onetCode:$onetCode, occupationTitleOverride: $occupationTitleOverride)
+  {
+    ...occupationFragment
+
+    instructionalProgramList
+    {
+      cipCode
+      cipTitle
+    }
+  }
+}
+
+
+fragment occupationFragment on Occupation
+{
+  vpOccupationId
+  onetCode
+  socCode
+  title
+  description
+  typicalEducationLevelGroupId
+  typicalLevelOfEducation
+  typicalWorkExperienceGroupId
+  typicalWorkExperience
+  projectedGrowthRate
+  projectedGrowthRateId
+  projectedJobOpenings2018To2028
+  imageName
+  videoId
+  videoUrl
+  posterUrl
+}

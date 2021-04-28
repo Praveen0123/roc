@@ -1,0 +1,37 @@
+query locationByZipCode($zipCode: ID!, $cityNameOverride: String)
+{
+  locationByZipCode( zipCode:$zipCode, cityNameOverride: $cityNameOverride )
+  {
+    ...locationFragment
+  }
+}
+
+fragment locationFragment on Location
+{
+  zipCode
+  marketArea
+  marketAreaCityName
+  marketAreaStateAbbreviation
+  cityName
+  countyFIPSCode
+  countyName
+  stateAbbreviation
+  stateName
+  regionId
+  regionName
+  medianAnnualSalary
+  medianSalaryPrecisionSource
+  incomeBandId
+  incomeBandName
+  costOfLivingList
+  {
+		expenseCategoryGroupId
+    expenseCategoryGroupName
+    expenseCategoryId
+    expenseCategoryName
+    averageAnnualExpense
+    averageMonthlyExpense
+  }
+  latitude
+  longitude
+}

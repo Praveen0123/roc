@@ -1,0 +1,14 @@
+
+query instructionalProgram($cipCode: String!)
+{
+  instructionalProgram(cipCode:$cipCode)
+  {
+    cipCode
+    cipTitle
+    occupations
+    {
+      onetCode
+      title
+    }
+  }
+}

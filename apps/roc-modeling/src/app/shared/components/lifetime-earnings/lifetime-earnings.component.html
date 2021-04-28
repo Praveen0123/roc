@@ -1,0 +1,46 @@
+<ng-container *ngIf="{
+    selectedRoiCalculatorOutputChartPlotData: selectedRoiCalculatorOutputChartPlotData$ | async,
+    selectedRoiCalculatorOutputForLegend: selectedRoiCalculatorOutputForLegend$ | async,
+    selectedRoiSectionsVisibility: selectedRoiSectionsVisibility$ | async,
+    getRoiCalculatorOutputsLoading: getRoiCalculatorOutputsLoading$ | async,
+    selectRoiCalculatorOutputChartPopoverData: selectRoiCalculatorOutputChartPopoverData$ | async,
+    selectedRoiCalculatorOutput: selectedRoiCalculatorOutput$ | async,
+    selectCurrentStateOccupation: selectCurrentStateOccupation$ | async,
+    selectGoalStateOccupation: selectGoalStateOccupation$ | async,
+    popoverDialogData: popoverDialogData$ | async
+  } as roiOwner">
+  <div class="h-6 pl-6">
+    <fa-icon *ngIf="roiOwner.getRoiCalculatorOutputsLoading"
+             icon="sync"
+             [spin]="true"></fa-icon>
+  </div>
+  <div *ngIf="!roiOwner.selectedRoiCalculatorOutputChartPlotData"
+       class="flex flex-col place-items-center">
+
+    <div class="font-bold">
+      Start Modeling Your Return On Investment (ROI)
+    </div>
+
+    <div class="text-sm text-gray-600">
+      Start by entering your current information on the top.
+    </div>
+
+    <img style="width: 600px;"
+         class="-mt-6 opacity-75"
+         src="/assets/images/calculator/calculator_start.svg"
+         alt="roi calculator" />
+  </div>
+
+  <section class="flex">
+    <roc-lifetime-earnings-chart *ngIf="roiOwner.selectedRoiCalculatorOutputChartPlotData"
+                                 [chartPlotData]="roiOwner.selectedRoiCalculatorOutputChartPlotData"
+                                 [roiSectionsVisibility]="roiOwner.selectedRoiSectionsVisibility"
+                                 (rocChartClick)="onChartClick($event)"></roc-lifetime-earnings-chart>
+
+    <roc-lifetime-earnings-legend *ngIf="roiOwner.selectedRoiCalculatorOutputForLegend"
+                                  [data]="roiOwner.selectedRoiCalculatorOutputForLegend"
+                                  [roiSectionsVisibility]="roiOwner.selectedRoiSectionsVisibility"
+                                  [currentStateOccupation]="roiOwner.selectCurrentStateOccupation"
+                                  [goalStateOccupation]="roiOwner.selectGoalStateOccupation"></roc-lifetime-earnings-legend>
+  </section>
+</ng-container>
